@@ -518,6 +518,10 @@
         document.getElementById('registrationForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
+    const btn = document.querySelector(".submit-btn");
+    btn.textContent = "Submitting...";
+    btn.disabled = true;
+
     const data = {
         name: document.getElementById('name').value,
         roll: document.getElementById('rollNumber').value,
@@ -525,13 +529,28 @@
         phone: document.getElementById('phone').value
     };
 
-    await fetch("https://script.google.com/macros/s/AKfycbyt6ghTwonnsQoVnVdVKVtr1QvT2gTpmuZ5jdgUzmUw_Zx_yVXDhoC3EzAYm024rl8_Dg/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
+    try {
+        await fetch("https://script.google.com/macros/s/AKfycbyt6ghTwonnsQoVnVdVKVtr1QvT2gTpmuZ5jdgUzmUw_Zx_yVXDhoC3EzAYm024rl8_Dg/exec", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const form = this;
+        form.style.opacity = '0';
+        setTimeout(()=>{
+            form.style.display='none';
+            document.getElementById('successMessage').style.display='block';
+        },600);
+
+    } catch(err) {
+        alert("Submission failed. Check Apps Script deployment.");
+        btn.textContent = "🚀 Launch Your Journey";
+        btn.disabled = false;
+    }
+});
 
     const form = this;
     form.style.opacity = '0';
@@ -539,7 +558,7 @@
         form.style.display='none';
         document.getElementById('successMessage').style.display='block';
     },600);
-});
+    
 
        
         document.querySelectorAll('.card, button, .circular-input').forEach(el => {
