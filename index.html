@@ -28,7 +28,7 @@
             cursor: none;
         }
 
-        /* Particle Background */
+       
         #particles {
             position: fixed;
             top: 0;
@@ -47,7 +47,7 @@
             animation: particleFloat 20s infinite linear;
         }
 
-        /* Custom Cursor */
+       
         .cursor {
             position: fixed;
             width: 20px;
@@ -96,7 +96,7 @@
             z-index: 10;
         }
 
-        /* Typing Animation Heading */
+       
         .hero-header {
             text-align: center;
             margin-bottom: 60px;
@@ -135,7 +135,7 @@
             letter-spacing: 2px;
         }
 
-        /* Glassmorphism Hero Section */
+       
         .glass-hero {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
@@ -148,7 +148,7 @@
             animation: glassFloat 6s ease-in-out infinite;
         }
 
-        /* Card Lift Animation */
+        
         .feature-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -202,7 +202,7 @@
             color: #fff;
         }
 
-        /* Circular Hovering Inputs - MODERN FLOATING LABELS */
+       
         .form-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(25px);
@@ -363,21 +363,21 @@
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
+    
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
     
-    <!-- Particle Background -->
+    
     <div id="particles"></div>
 
     <div class="container">
-        <!-- Typing Animation Header -->
+        
         <header class="hero-header">
             <h1 class="typing-logo" id="typingLogo">DevCatalyst</h1>
             <p class="hero-subtitle">Tech Workshop • Code the Future</p>
         </header>
 
-        <!-- Glassmorphism Hero -->
+    
         <section class="glass-hero">
             <h2 style="font-size: 2.2em; margin-bottom: 20px;">🚀 Level Up Your Dev Skills</h2>
             <p style="font-size: 1.2em; opacity: 0.9;">
@@ -385,7 +385,7 @@
             </p>
         </section>
 
-        <!-- Feature Cards with Lift Animation -->
+      
         <section class="feature-cards">
             <div class="card">
                 <span class="card-icon">⚡</span>
@@ -404,7 +404,7 @@
             </div>
         </section>
 
-        <!-- Circular Floating Label Form -->
+       
         <section class="form-section">
             <h2 class="form-title">Register Now</h2>
             <form id="registrationForm">
@@ -448,7 +448,7 @@
     </div>
 
     <script>
-        // Custom Cursor
+       
         const cursor = document.getElementById('cursor');
         const cursorFollower = document.getElementById('cursorFollower');
         let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, followerX = 0, followerY = 0;
@@ -484,7 +484,7 @@
                 { duration: 600, easing: 'ease-out' }).onfinish = () => trail.remove();
         }
 
-        // Particle Background
+       
         function createParticles() {
             const particles = document.getElementById('particles');
             for (let i = 0; i < 80; i++) {
@@ -498,7 +498,7 @@
             }
         }
 
-        // Typing Animation
+       
         const typingText = "DevCatalyst";
         let i = 0;
         function typeWriter() {
@@ -514,22 +514,36 @@
             }
         }
 
-        // Form Handling
+       
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            form.style.transition = 'all 0.6s ease';
-            form.style.opacity = '0';
-            form.style.transform = 'scale(0.95) translateY(30px)';
-            
-            setTimeout(() => {
-                form.style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                createFireworks();
-            }, 600);
-        });
+    e.preventDefault();
 
-        // Hover Effects
+   
+    const name = document.getElementById('name').value;
+    const roll = document.getElementById('rollNumber').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+   
+    console.log("Name:", name);
+    console.log("Roll:", roll);
+    console.log("Email:", email);
+    console.log("Phone:", phone);
+
+    
+    const form = this;
+    form.style.transition = 'all 0.6s ease';
+    form.style.opacity = '0';
+    form.style.transform = 'scale(0.95) translateY(30px)';
+    
+    setTimeout(() => {
+        form.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        createFireworks();
+    }, 600);
+});
+
+       
         document.querySelectorAll('.card, button, .circular-input').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'scale(2) rotate(180deg)';
@@ -543,7 +557,7 @@
             });
         });
 
-        // Fireworks
+        
         function createFireworks() {
             const colors = ['#00d4ff', '#ff00ff', '#00ff88', '#ffaa00', '#ff6b6b'];
             for (let i = 0; i < 120; i++) {
@@ -568,10 +582,11 @@
             }
         }
 
-        // Initialize
+    
         animateCursor();
         createParticles();
         typeWriter();
     </script>
 </body>
 </html>
+
