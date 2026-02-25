@@ -25,7 +25,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-            cursor: default;
+            cursor: none;
         }
 
        
@@ -166,7 +166,7 @@
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            cursor: default;
+            
         }
 
         .card::before {
@@ -270,7 +270,7 @@
             text-align: center;
             padding: 0;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: default;
+            
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
@@ -308,7 +308,7 @@
             border-radius: 50px;
             font-size: 1.3em;
             font-weight: 700;
-            cursor: default;
+            
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -464,10 +464,10 @@
             cursorY += (mouseY - cursorY) * 0.2;
             followerX += (mouseX - followerX) * 0.1;
             followerY += (mouseY - followerY) * 0.1;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            cursorFollower.style.left = followerX + 'px';
-            cursorFollower.style.top = followerY + 'px';
+            cursor.style.left = (cursorX - 10) + 'px';
+            cursor.style.top = (cursorY - 10) + 'px';
+            cursorFollower.style.left = (followerX - 30) + 'px';
+            cursorFollower.style.top = (followerY - 30) + 'px';
             requestAnimationFrame(animateCursor);
         }
 
@@ -554,7 +554,7 @@
 });
 
     const form = this;
-    form.style.opacity = '0';
+    
     setTimeout(()=>{
         form.style.display='none';
         document.getElementById('successMessage').style.display='block';
